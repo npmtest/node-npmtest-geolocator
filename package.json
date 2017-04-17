@@ -1,1 +1,40 @@
-{     "devDependencies": {         "geolocator": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-geolocator",     "homepage": "https://github.com/npmtest/node-npmtest-geolocator",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-geolocator.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "test coverage for [geolocator (v2.1.1)](https://github.com/onury/geolocator) [![npm package](https://img.shields.io/npm/v/npmtest-geolocator.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-geolocator) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-geolocator.svg)](https://travis-ci.org/npmtest/node-npmtest-geolocator)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "geolocator": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-geolocator",
+    "keywords": [
+        "coverage",
+        "test",
+        "geolocator"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_geolocator.js",
+    "name": "npmtest-geolocator",
+    "nameAlias": "npmtest_geolocator",
+    "nameOriginal": "npmtest-geolocator",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-geolocator.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
